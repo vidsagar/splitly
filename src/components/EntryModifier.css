@@ -1,0 +1,45 @@
+.entry-modifier{
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    gap:5px;
+}
+
+.split-tax-row{
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+}
+
+.split-tax-button{
+}
+
+.user-count-update{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.users-count-row{
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+}
+
+.user-count-update{
+    flex:1;
+}
+
+.count-update-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+}
+
+.user-button{
+    width:100%;
+}
+
+.count-text{
+    text-align: center;
+}

@@ -1,0 +1,40 @@
+
+
+.item-input-row {
+    display: flex;
+    gap: 10px; /* Add spacing between fields */
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .item-input-row input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .input-field-item-name{
+    min-width:150px;
+  }
+
+  .input-field-item-price, .input-field-item-count{
+    min-width: 50px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #088d0f;
+  }
+  

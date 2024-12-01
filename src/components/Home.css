@@ -1,0 +1,14 @@
+.item-input-form {
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    align-items: center;
+    justify-content: center;
+    min-height:50vh;
+  }
+
+  .item-input-form-row{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+  }
