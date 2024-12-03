@@ -1,9 +1,9 @@
 import InputRow from "./InputRow";
 import { useEffect, useState } from "react";
-import { isValidInput } from "../Utils";
-import Button from "./Button";
+import { isValidInput } from "../utils/Utils";
+import Button from "../components/Button";
 import EntryModifier from "./EntryModifier";
-import "./Home.css";
+import "../styles/Home.css";
 
 function Home() {
   const users = [

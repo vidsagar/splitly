@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "./Button";
-import "./EntryModifier.css"
+import Button from "../components/Button";
+import "../styles/EntryModifier.css"
 
 function EntryModifier({inputItem, users, index, onTaxClick, onUserClick}) {
     return(

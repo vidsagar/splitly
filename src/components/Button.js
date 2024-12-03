@@ -1,5 +1,5 @@
 import React from "react";
-import "./Button.css";
+import "../styles/Button.css";
 
 const Button = ({ label, name, value, onClick, variant = "primary", disabled = false }) => {
   const handleKeyDown = (event) => {

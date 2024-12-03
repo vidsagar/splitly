@@ -1,7 +1,7 @@
 import React from 'react';
-import "./InputRow.css";
-import InputField from "./input/InputField";
-import Button from "./Button";
+import InputField from "../components/InputField";
+import Button from "../components/Button";
+import "../styles/InputRow.css";
 
 function InputRow({item, onFocus, onItemChange, onDeleteClick}){
     return(

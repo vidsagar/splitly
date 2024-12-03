@@ -1,5 +1,5 @@
 import React from 'react';
-import "./InputField.css";
+import "../styles/InputField.css";
 
 function InputField({id, placeholder, value, onFocus, onChange, className}){
     return(
