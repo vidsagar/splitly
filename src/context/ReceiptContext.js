@@ -18,6 +18,6 @@ const items = [
     }
 ];
 
-const ItemsContext = createContext(items);
+const ReceiptContext = createContext(items);
 
-export default ItemsContext;
+export default ReceiptContext;
