@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route 
-          path="/cooking" 
+          path="/" 
           element={
             <FallbrookeLayout>
               <CookingTracker />
@@ -27,7 +27,7 @@ function App() {
           } 
         />
         <Route 
-          path="*" 
+          path="/error" 
           element={
             <NotFoundPage />
           }

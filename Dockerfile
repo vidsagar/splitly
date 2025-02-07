@@ -1,21 +1,17 @@
 # ------------ Stage 1: Build the React app ------------
-FROM node:14-alpine AS build
+FROM node:18-alpine AS build
 
 # Create app directory
 WORKDIR /app
 
-# Copy the package.json and yarn.lock (or package-lock.json if using npm)
-COPY package.json yarn.lock ./
-
-# Install dependencies
-RUN yarn install --frozen-lockfile
-
 # Copy the rest of the application files
 COPY . .
 
-# Build the app for production
-RUN yarn build
+# Install dependencies
+RUN npm install 
 
+# Build the app for production
+RUN npm run build
 
 # ------------ Stage 2: Serve with NGINX ------------
 FROM nginx:alpine
