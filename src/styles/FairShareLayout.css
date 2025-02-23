@@ -10,12 +10,12 @@ header {
     color: white;
     padding: 15px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+    
 }
 
 nav {
+    display: flex;
+    flex-direction: row;
     margin-top: 10px;
 }
 
@@ -41,4 +41,29 @@ footer {
     padding: 10px;
     font-size: 14px;
     margin-top: auto;
-  }
+}
+
+@Media (max-width: 1023px) {
+    header {
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .layout-container{
+        flex-direction: row;
+    }
+
+    header {
+        flex-direction: column;
+        display: flex;
+        align-items:center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../components/Button";
+import Button from "./Button";
 import "../styles/EntryModifier.css"
 
-function EntryModifier({inputItem, users, index, onTaxClick, onUserClick}) {
+function PortionManager({inputItem, users, onTaxClick, onUserClick}) {
     return(
         <div className = "entry-modifier">
             <div className = "split-tax-row">
@@ -55,4 +55,4 @@ function EntryModifier({inputItem, users, index, onTaxClick, onUserClick}) {
     )
 }
 
-export default EntryModifier;
+export default PortionManager;

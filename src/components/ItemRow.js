@@ -1,9 +1,9 @@
 import React from 'react';
-import InputField from "../components/InputField";
-import Button from "../components/Button";
+import InputField from "./Input";
+import Button from "./Button";
 import "../styles/InputRow.css";
 
-function InputRow({item, onFocus, onItemChange, onDeleteClick}){
+function ItemRow({item, onFocus, onItemChange, onDeleteClick}){
     return(
         <div className="item-input-row">
             <InputField
@@ -39,4 +39,4 @@ function InputRow({item, onFocus, onItemChange, onDeleteClick}){
     );
 }
 
-export default InputRow;
+export default ItemRow;
