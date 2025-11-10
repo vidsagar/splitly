@@ -31,9 +31,7 @@
 }
 
 .count-update-row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-evenly;
+    display: flex;
 }
 
 .user-button{
