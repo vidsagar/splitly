@@ -2,7 +2,15 @@ import { UserContext } from "./UserContext";
 import { useContext, useState } from "react";
 
 export const UserProvider = ({ children }) => {
-	const [users, setUsers] = useState([]);
+	//hardcoded logged in user
+	const [users, setUsers] = useState([
+		{
+			username: "Victor",
+			userId: crypto.randomUUID(),
+			count: 1
+		}
+	]);
+
 	const addUser = (username) => {
 		const newUser = {
 			username: username,
@@ -16,7 +24,11 @@ export const UserProvider = ({ children }) => {
 		]);
 		return true;
 	};
-	const removeUser = () => { };
+
+	const removeUser = (idToRemove) => {
+		const newUsers = users.filter(user => user.userId !== idToRemove);
+		setUsers(newUsers);
+	};
 
 	return (
 		<UserContext.Provider

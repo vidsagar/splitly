@@ -3,16 +3,36 @@ import { useUser } from "context/UserProvider";
 import { useState } from 'react';
 import InputField from "./Input";
 import Button from "./Button";
+import "styles/UserManager.css";
 
 export const UserManager = () => {
-	const [username, setUsername] = useState("");
+	const [username, setUsername] = useState();
 	const onNameChange = (e) => {
 		setUsername(e.target.value);
 	};
 
 	const { users, addUser, removeUser } = useUser();
 	return (
-		<div>
+		<div className="user-manager-container">
+			<span>Split with:</span>
+			{
+				users.map(user =>
+					<div key={user.userId} >
+						<InputField
+							id="username"
+							value={user.username}
+							placeholder={user.username}
+							onChange={onNameChange}
+							className="input-field-user-name"
+						/>
+						<Button
+							label="✖"
+							onClick={() => removeUser(user.userId)}
+							variant="delete"
+						/>
+					</div>
+				)
+			}
 			<InputField
 				id="username"
 				value={username}
@@ -26,14 +46,6 @@ export const UserManager = () => {
 					addUser(username) && setUsername("")
 				}
 			/>
-			<div>
-				<ul>{users.map(user =>
-					<li key={user.userId}>
-						{user.username}
-					</li>
-				)}
-				</ul>
-			</div>
-		</div>
+		</div >
 	)
 };
