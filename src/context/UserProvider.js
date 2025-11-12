@@ -2,7 +2,6 @@ import { UserContext } from "./UserContext";
 import { useContext, useState } from "react";
 
 export const UserProvider = ({ children }) => {
-	//hardcoded logged in user
 	const [users, setUsers] = useState([
 		{
 			username: "Victor",
@@ -10,6 +9,16 @@ export const UserProvider = ({ children }) => {
 			count: 1
 		}
 	]);
+
+	const onUsernameChange = (e, userId) => {
+		const indexToUpdate = users.findIndex(user => user.userId === userId);
+		const tempUsers = [...users];
+		tempUsers[indexToUpdate] = {
+			...tempUsers[indexToUpdate],
+			username: e.target.value,
+		};
+		setUsers(tempUsers);
+	};
 
 	const addUser = (username) => {
 		const newUser = {
@@ -20,9 +29,7 @@ export const UserProvider = ({ children }) => {
 		setUsers([
 			...users,
 			newUser
-
 		]);
-		return true;
 	};
 
 	const removeUser = (idToRemove) => {
@@ -35,7 +42,8 @@ export const UserProvider = ({ children }) => {
 			value={{
 				users,
 				addUser,
-				removeUser
+				removeUser,
+				onUsernameChange
 			}}>
 			{children}
 		</UserContext.Provider>

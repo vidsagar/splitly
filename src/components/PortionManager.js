@@ -4,7 +4,6 @@ import "../styles/EntryModifier.css"
 import Input from "./Input.js";
 
 function PortionManager({ inputItem, users, onTaxClick, onUserClick }) {
-	console.log(users);
 	return (
 		<div className="entry-modifier">
 			<div className="split-tax-row">

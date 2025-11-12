@@ -1,6 +1,14 @@
 .user-manager-container {
 	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	align-items: center;
+}
+
+.users-row {
+	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	gap: 5px;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-right: auto;
 }
