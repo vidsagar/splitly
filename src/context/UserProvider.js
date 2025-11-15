@@ -2,9 +2,6 @@ import { UserContext } from "./UserContext";
 import { useContext, useState } from "react";
 
 export const UserProvider = ({ children }) => {
-<<<<<<< Updated upstream
-	const [users, setUsers] = useState([]);
-=======
 	const [users, setUsers] = useState([
 		{
 			username: "Victor",
@@ -22,7 +19,6 @@ export const UserProvider = ({ children }) => {
 		setUsers(tempUsers);
 	};
 
->>>>>>> Stashed changes
 	const addUser = (username) => {
 		const newUser = {
 			username: username,
@@ -31,18 +27,21 @@ export const UserProvider = ({ children }) => {
 		setUsers([
 			...users,
 			newUser
-
 		]);
-		return true;
 	};
-	const removeUser = () => { };
+
+	const removeUser = (idToRemove) => {
+		const newUsers = users.filter(user => user.userId !== idToRemove);
+		setUsers(newUsers);
+	};
 
 	return (
 		<UserContext.Provider
 			value={{
 				users,
 				addUser,
-				removeUser
+				removeUser,
+				onUsernameChange
 			}}>
 			{children}
 		</UserContext.Provider>
