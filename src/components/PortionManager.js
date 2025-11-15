@@ -19,11 +19,6 @@ function PortionManager({ inputItem, itemUsers = [], onTaxClick, onItemUserClick
 		}
 	)
 
-<<<<<<< Updated upstream
-function PortionManager({ inputItem, users, onTaxClick, onUserClick }) {
-	console.log(users);
-=======
->>>>>>> Stashed changes
 	return (
 		<div className="entry-modifier">
 			<div className="split-tax-row">
