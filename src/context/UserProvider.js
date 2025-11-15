@@ -9,25 +9,26 @@ export const UserProvider = ({ children }) => {
 		}
 	]);
 
-	const onUsernameChange = (e, userId) => {
+	const onUsernameChange = (newUsername, userId) => {
 		const indexToUpdate = users.findIndex(user => user.userId === userId);
 		const tempUsers = [...users];
 		tempUsers[indexToUpdate] = {
 			...tempUsers[indexToUpdate],
-			username: e.target.value,
+			username: newUsername,
 		};
 		setUsers(tempUsers);
 	};
 
-	const addUser = (username) => {
-		const newUser = {
-			username: username,
-			userId: crypto.randomUUID()
-		};
+	const addUser = () => {
+		const userId = crypto.randomUUID();
 		setUsers([
 			...users,
-			newUser
+			{
+				username: "",
+				userId: userId
+			}
 		]);
+		return userId;
 	};
 
 	const removeUser = (idToRemove) => {
