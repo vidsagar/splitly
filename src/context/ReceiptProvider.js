@@ -5,7 +5,7 @@ import { useUser } from "./UserProvider";
 
 export const ReceiptProvider = ({ children }) => {
 	const { users } = useUser();
-	const [items, setItems] = useState([{ 'isEvenSplit': true, 'isTax': false, itemCount: 1, 'users': [...users] }]);
+	const [items, setItems] = useState([]);
 	const [focused, setFocused] = useState();
 	const [result, setResult] = useState("");
 
@@ -31,31 +31,56 @@ export const ReceiptProvider = ({ children }) => {
 		setItems(tempItems);
 	}
 
-	const onUserClick = (e, indexToModify) => {
-		let modifiedUserName = e.target.getAttribute('name');
-		let currentUsers = (items[indexToModify].users)
-			.map(currentuser =>
-				(currentuser.name === modifiedUserName) ? { ...currentuser, 'count': currentuser.count > 0 ? 0 : 1 } : currentuser
-			)
+	const onItemUserClick = (userId, itemId) => {
+		let modifiedItemIndex = items.findIndex(item => item.itemId === itemId);
+		let itemUsers = items[modifiedItemIndex].users;
+
+
+		//loop through item users
+		//if userId == itemUser.userId, then set count to 1 if 0 or 0 if 1
+		//if no match found, then add the userId and set count to 1.
+
+		let isNewUser = true;
+		let currentUsers = itemUsers
+			.map(currentuser => {
+				if (currentuser.userId === userId) {
+					isNewUser = false;
+					return {
+						...currentuser,
+						'count': currentuser.count > 0 ? 0 : 1
+					};
+				}
+				else {
+					return currentuser;
+				}
+			});
+
+		if (isNewUser) {
+			currentUsers = [...currentUsers, { 'userId': userId, 'count': 1 }];
+		}
+
 		const tempItems = [...items];
-		tempItems[indexToModify] = {
-			...tempItems[indexToModify],
+		tempItems[modifiedItemIndex] = {
+			...tempItems[modifiedItemIndex],
 			users: currentUsers
 		}
 		setItems(tempItems);
 	}
-
-	useEffect(() => {
-		onSubmitClick();
-	}, [items])
 
 	const handleFocus = (indexFocused) => {
 		setFocused(indexFocused);
 	}
 
 	const onAddClick = () => {
-		setItems([...items, { 'isEvenSplit': true, itemCount: 1, 'users': [...users] }]);
-		setFocused(items.length);
+		const thisitemUsers = users.map(user => ({ userId: user.userId, count: 1 }));
+		const newItem = { 'isEvenSplit': true, itemId: crypto.randomUUID(), itemCount: 1, 'users': thisitemUsers };
+		if (items) {
+			setItems([...items, newItem]);
+		}
+		else {
+			setItems([newItem])
+		}
+		setFocused(items ? items.length : 0);
 	}
 
 	const onDeleteClick = (indexToDelete) => {
@@ -98,7 +123,7 @@ export const ReceiptProvider = ({ children }) => {
 			setResult,
 			onItemChange,
 			onTaxClick,
-			onUserClick,
+			onItemUserClick,
 			handleFocus,
 			onAddClick,
 			onDeleteClick,
