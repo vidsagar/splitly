@@ -19,9 +19,9 @@ export const UserProvider = ({ children }) => {
 		setUsers(tempUsers);
 	};
 
-	const addUser = (username) => {
+	const addUser = () => {
 		const newUser = {
-			username: username,
+			username: "",
 			userId: crypto.randomUUID()
 		};
 		setUsers([
