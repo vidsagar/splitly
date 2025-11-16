@@ -11,7 +11,12 @@
 	flex: 1;
 }
 
-.button.inline-cross {}
+.button.add-user {
+	background-color: #4caf50;
+	align-self: center;
+	flex: 0;
+	white-space: nowrap
+}
 
 /* Variants */
 .button.primary {
