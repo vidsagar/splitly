@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/splitly/static/css/main.63840c17.css",
+    "main.js": "/splitly/static/js/main.9bcd0415.js",
+    "index.html": "/splitly/index.html",
+    "main.63840c17.css.map": "/splitly/static/css/main.63840c17.css.map",
+    "main.9bcd0415.js.map": "/splitly/static/js/main.9bcd0415.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.63840c17.css",
+    "static/js/main.9bcd0415.js"
+  ]
+}
