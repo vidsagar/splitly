@@ -8,9 +8,9 @@ export const UserManager = () => {
 	const { users, onUsernameChange, addUser, removeUser } = useUser();
 
 	return (
-		<div>
+		<div className="user-manager-container">
 			<p className="editable-paragraph">
-				Split receipt with
+				Split receipt with&nbsp;
 				{
 					users.map((user, index) => {
 						const isLast = index === users.length - 1;
@@ -51,6 +51,7 @@ export const UserManager = () => {
 			<Button
 				label="Add user"
 				onClick={addUser}
+				variant="add-user"
 			/>
 		</div>
 	)
