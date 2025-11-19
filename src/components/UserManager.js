@@ -1,11 +1,11 @@
-import { useUser } from "context/UserProvider";
+import { useReceipt } from "context/ReceiptProvider";
 import "styles/UserManager.css";
 import React from "react";
 
 import Button from "./Button";
 
 export const UserManager = () => {
-	const { users, onUsernameChange, addUser, removeUser } = useUser();
+	const { users, onUsernameChange, addUser, removeUser } = useReceipt();
 
 	return (
 		<div className="user-manager-container">
