@@ -1,10 +1,50 @@
 import { ReceiptContext } from "./ReceiptContext";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { isValidInput, getBuyersPortion } from "utils/Utils";
-import { useUser } from "./UserProvider";
 
 export const ReceiptProvider = ({ children }) => {
-	const { users } = useUser();
+	/***** USER STORE START *****/
+	const [users, setUsers] = useState([
+		{
+			username: "Victor",
+			userId: crypto.randomUUID(),
+		}
+	]);
+
+	const onUsernameChange = (newUsername, userId) => {
+		const indexToUpdate = users.findIndex(user => user.userId === userId);
+		const tempUsers = [...users];
+		tempUsers[indexToUpdate] = {
+			...tempUsers[indexToUpdate],
+			username: newUsername,
+		};
+		setUsers(tempUsers);
+	};
+
+	const addUser = () => {
+		const userId = crypto.randomUUID();
+		setUsers([
+			...users,
+			{
+				username: "",
+				userId: userId
+			}
+		]);
+		return userId;
+	};
+
+	const removeUser = (idToRemove) => {
+		setUsers(prev => prev.filter(user => user.userId !== idToRemove));
+		setItems(prev => prev.map(item => {
+			return {
+				...item,
+				users: item.users.filter(user => user.userId !== idToRemove),
+			}
+		}));
+	};
+
+	/***** USER STORE END *****/
+
 	const [items, setItems] = useState([]);
 	const [focused, setFocused] = useState();
 	const [result, setResult] = useState("");
@@ -74,10 +114,10 @@ export const ReceiptProvider = ({ children }) => {
 	const onAddClick = () => {
 		const thisitemUsers = users.map(user => ({ userId: user.userId, count: 1 }));
 		const newItem = { 'isEvenSplit': true, itemId: crypto.randomUUID(), itemCount: 1, 'users': thisitemUsers };
-		if (items) {
+		if (items) { //if there are existing items
 			setItems([...items, newItem]);
 		}
-		else {
+		else { //if this is the first item in the receipt
 			setItems([newItem])
 		}
 		setFocused(items ? items.length : 0);
@@ -97,8 +137,8 @@ export const ReceiptProvider = ({ children }) => {
 					user => {
 						let buyersPortion = getBuyersPortion(item, user);
 						personToPriceMap.set(
-							user.name,
-							personToPriceMap.has(user.name) ? personToPriceMap.get(user.name) + buyersPortion : buyersPortion
+							user.userId,
+							personToPriceMap.has(user.userId) ? personToPriceMap.get(user.userId) + buyersPortion : buyersPortion
 						);
 					}
 				)
@@ -115,19 +155,25 @@ export const ReceiptProvider = ({ children }) => {
 	return (
 		<ReceiptContext.Provider value={{
 			users,
+			addUser,
+			removeUser,
+			onUsernameChange,
+
 			items,
 			setItems,
-			focused,
-			setFocused,
-			result,
-			setResult,
 			onItemChange,
 			onTaxClick,
 			onItemUserClick,
-			handleFocus,
 			onAddClick,
 			onDeleteClick,
-			onSubmitClick
+			onSubmitClick,
+
+			focused,
+			setFocused,
+			handleFocus,
+
+			result,
+			setResult,
 		}}>
 			{children}
 		</ReceiptContext.Provider>

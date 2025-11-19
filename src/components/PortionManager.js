@@ -2,10 +2,10 @@ import React from "react";
 import Button from "./Button";
 import "../styles/EntryModifier.css"
 import Input from "./Input.js";
-import { useUser } from "context/UserProvider";
+import { useReceipt } from "context/ReceiptProvider";
 
 function PortionManager({ inputItem, itemUsers = [], onTaxClick, onItemUserClick }) {
-	const { users } = useUser();
+	const { users } = useReceipt();
 
 	const tempUsers = users.map(
 		user => {
