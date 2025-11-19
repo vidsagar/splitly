@@ -138,14 +138,17 @@ export const ReceiptProvider = ({ children }) => {
 						let buyersPortion = getBuyersPortion(item, user);
 						personToPriceMap.set(
 							user.userId,
-							personToPriceMap.has(user.userId) ? personToPriceMap.get(user.userId) + buyersPortion : buyersPortion
+							{
+								username: users.find(globalUser => globalUser.userId === user.userId).username,
+								portion: personToPriceMap.has(user.userId) ? personToPriceMap.get(user.userId) + buyersPortion : buyersPortion,
+							}
 						);
 					}
 				)
 			}
 		)
 		for (const [key, value] of personToPriceMap.entries()) {
-			total += value;
+			total += value.portion;
 		}
 		personToPriceMap.set('total', total);
 		let res = JSON.stringify(Array.from(personToPriceMap));
