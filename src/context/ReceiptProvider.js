@@ -21,12 +21,12 @@ export const ReceiptProvider = ({ children }) => {
 		setUsers(tempUsers);
 	};
 
-	const addUser = () => {
+	const addUser = (username) => {
 		const userId = crypto.randomUUID();
 		setUsers([
 			...users,
 			{
-				username: "",
+				username: username,
 				userId: userId
 			}
 		]);

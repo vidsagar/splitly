@@ -1,11 +1,29 @@
 import { useReceipt } from "context/ReceiptProvider";
 import "styles/UserManager.css";
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "./Button";
+import AutoGrowInput from "./AutoGrowInput";
 
 export const UserManager = () => {
 	const { users, onUsernameChange, addUser, removeUser } = useReceipt();
+
+	const [newUser, setNewUser] = useState("");
+
+	const updateUsername = (value) => {
+		setNewUser(value);
+	}
+
+	const addNewUser = (newUsername) => {
+		if (!newUsername) return;
+		addUser(newUsername);
+		deleteNewUser();
+	}
+
+	const deleteNewUser = () => {
+		setNewUser("");
+	}
+
 
 	return (
 		<div className="user-manager-container">
@@ -14,26 +32,16 @@ export const UserManager = () => {
 				{
 					users.map((user, index) => {
 						const isLast = index === users.length - 1;
-						const isSecondLast = index === users.length - 2;
-
-						let punctuation = "";
-
-						if (users.length > 1) {
-							if (!isLast && !isSecondLast) punctuation = ", ";
-							else if (isSecondLast) punctuation = " and ";
-						}
+						let punctuation = users.length > 1 ? ", " : "";
 
 						return (
 							<React.Fragment key={user.userId}>
 								<span className="token">
-									<span
+									<AutoGrowInput
 										className="input-wrap"
-										role="textbox"
-										contentEditable
-										onBlur={(e) => onUsernameChange(e.currentTarget.textContent, user.userId)}
-									>
-										{user.username}
-									</span>
+										value={user.username}
+										onChange={(username) => onUsernameChange(username, user.userId)}
+									/>
 									<button
 										type="button"
 										className="delete-btn"
@@ -47,12 +55,28 @@ export const UserManager = () => {
 						)
 					})
 				}
+				{users.length >= 1 ? " and " : ""}
+
+				<span className="token">
+					<AutoGrowInput
+						value={newUser}
+						onChange={updateUsername}
+						onBlur={addNewUser}
+					/>
+					<button
+						type="button"
+						className="delete-btn"
+						onClick={deleteNewUser}
+					>
+						×
+					</button>
+				</span>
 			</p>
 			<Button
 				label="Add user"
-				onClick={addUser}
+				onClick={() => addUser("")}
 				variant="add-user"
 			/>
 		</div>
 	)
-};
+}
