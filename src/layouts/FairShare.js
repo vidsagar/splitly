@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "styles/FairShareLayout.css";
+import "styles/FairShareLayout.scss";
 
 const FairShareLayout = ({ children }) => {
 	return (
 		<div className="layout-container">
-			<header>
+			<header className="nav-header">
 				<h4>FairShare</h4>
-				<nav>
-					<Link to="/cook">Cooking Tracker</Link>
-					<Link to="/split">Splitter</Link>
+				<nav className="nav-links">
+					<Link className="link-button" to="/cook">Cooking Tracker</Link>
+					<Link className="link-button" to="/split">Splitter</Link>
 				</nav>
 			</header>
-			<main>{children}</main>
+			<main className="main-content">{children}</main>
+			<footer>Copyright</footer>
 		</div>
 	)
 }
