@@ -1,9 +1,10 @@
 import { useRoutes } from "react-router-dom";
 import FairShareLayout from "layouts/FairShare";
 import CookingTracker from "pages/CookingTracker";
-import SplitlyHome from "pages/SplitlyHome";
+import NotFoundPage from "pages/NotFoundPage";
+import { FairShare } from "pages/FairShare";
 
-function AppRoutes() {
+function SplitlyRoutes() {
 	const page =
 		(component) =>
 			<FairShareLayout>
@@ -13,7 +14,7 @@ function AppRoutes() {
 	return useRoutes([
 		{
 			path: "/split",
-			element: page(<SplitlyHome />)
+			element: page(<FairShare />)
 		},
 		{
 			path: "/cook",
@@ -21,9 +22,9 @@ function AppRoutes() {
 		},
 		{
 			path: "*",
-			element: page(<SplitlyHome />)
+			element: page(<NotFoundPage />)
 		}
 	])
 }
 
-export default AppRoutes;
+export default SplitlyRoutes;
