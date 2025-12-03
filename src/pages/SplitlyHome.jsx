@@ -8,4 +8,4 @@ function SplitlyHome() {
 	)
 }
 
-export default SplitlyHome();
+export default SplitlyHome;
