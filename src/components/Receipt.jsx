@@ -1,8 +1,6 @@
-import { ItemList } from "components/ItemList";
-import { AddItemButton } from "components/AddItemButton";
-import { SubmitReceiptButton } from "components/SubmitReceiptButton";
-import { ReceiptProvider } from "context/ReceiptProvider";
-import "styles/Home.css";
+import { ItemList } from "components/itemList/ItemList";
+import { AddItemButton } from "components/button/AddItemButton";
+import { SubmitReceiptButton } from "components/button/SubmitReceiptButton";
 
 
 export const Receipt = () => {

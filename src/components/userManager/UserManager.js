@@ -1,9 +1,9 @@
 import { useReceipt } from "context/ReceiptProvider";
-import "styles/UserManager.css";
+import "./UserManager.scss";
 import React, { useState } from "react";
 
-import Button from "./Button";
-import AutoGrowInput from "./AutoGrowInput";
+import Button from "components/button/Button";
+import AutoGrowInput from "components/inputField/AutoGrowInput";
 
 export const UserManager = () => {
 	const { users, onUsernameChange, addUser, removeUser } = useReceipt();

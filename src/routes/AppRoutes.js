@@ -1,19 +1,29 @@
 import { useRoutes } from "react-router-dom";
-import FairShareLayout from "layouts/FairShare";
 import CookingTracker from "pages/CookingTracker";
-import SplitlyHome from "pages/SplitlyHome";
+import ReceiptEditor from "pages/splitly/ReceiptEditor";
+import SplitlyRoutes from "./SplitlyRoutes";
+import { Link } from "react-router-dom";
+import "./FairShareLayout.scss";
 
 function AppRoutes() {
 	const page =
 		(component) =>
-			<FairShareLayout>
-				{component}
-			</FairShareLayout>
+			<div className="layout-container">
+				<header className="nav-header">
+					<h4>FairShare</h4>
+					<nav className="nav-links">
+						<Link className="link-button" to="/cook">Cooking Tracker</Link>
+						<Link className="link-button" to="/split/">Splitter</Link>
+					</nav>
+				</header>
+				<main className="main-content">{component}</main>
+				<footer>Copyright</footer>
+			</div>
 
 	return useRoutes([
 		{
-			path: "/split",
-			element: page(<SplitlyHome />)
+			path: "/split/*",
+			element: page(<SplitlyRoutes />)
 		},
 		{
 			path: "/cook",
@@ -21,7 +31,7 @@ function AppRoutes() {
 		},
 		{
 			path: "*",
-			element: page(<SplitlyHome />)
+			element: page(<ReceiptEditor />)
 		}
 	])
 }

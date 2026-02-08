@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "./Button";
-import "../styles/EntryModifier.css"
-import Input from "./Input.js";
+import Button from "components/button/Button";
+import "./EntryModifier.scss"
+import Input from "components/inputField/InputField";
 import { useReceipt } from "context/ReceiptProvider";
 
 function PortionManager({ inputItem, itemUsers = [], onTaxClick, onItemUserClick }) {

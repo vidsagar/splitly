@@ -1,28 +1,42 @@
 import { useRoutes } from "react-router-dom";
-import FairShareLayout from "layouts/FairShare";
-import CookingTracker from "pages/CookingTracker";
-import NotFoundPage from "pages/NotFoundPage";
-import { FairShare } from "pages/FairShare";
+import { Receipts } from "pages/splitly/Receipts";
+import { Users } from "pages/splitly/Users";
+import { Activity } from "pages/splitly/Activity";
+import { Settings } from "pages/splitly/Settings";
+import { Link } from "react-router-dom";
 
 function SplitlyRoutes() {
-	const page =
-		(component) =>
-			<FairShareLayout>
-				{component}
-			</FairShareLayout>
+	const page = (component) =>
+		<div className="splitly-nav-container">
+			<main className="splitly-content">{component}</main>
+			<nav className="splitly-nav">
+				<Link className="nav-item" to="/split/receipts">Receipts</Link>
+				<Link className="nav-item" to="/split/users">Users</Link>
+				<Link className="nav-item" to="/split/activity">Activity</Link>
+				<Link className="nav-item" to="/split/settings">Settings</Link>
+			</nav>
+		</div>
 
 	return useRoutes([
 		{
-			path: "/split",
-			element: page(<FairShare />)
+			path: "receipts",
+			element: page(<Receipts />)
 		},
 		{
-			path: "/cook",
-			element: page(<CookingTracker />)
+			path: "users",
+			element: page(<Users />)
 		},
 		{
-			path: "*",
-			element: page(<NotFoundPage />)
+			path: "activity",
+			element: page(<Activity />)
+		},
+		{
+			path: "settings",
+			element: page(<Settings />)
+		},
+		{
+			path: "",
+			element: page(<Receipts />)
 		}
 	])
 }

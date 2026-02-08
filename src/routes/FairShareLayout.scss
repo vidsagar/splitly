@@ -36,7 +36,16 @@
     border-color: #fff;
   }
 
-  .main-content {}
+  .main-content {
+    flex: 1;
+    box-sizing: border-box;
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   footer {
     background-color: #282c34;
@@ -44,5 +53,12 @@
     padding: 10px;
     font-size: 14px;
     margin-top: auto;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .main-content {
+      padding: 10px;
+      margin: auto;
+    }
   }
 }
