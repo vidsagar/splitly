@@ -1,0 +1,93 @@
+$bg-color: #333333;
+$surface-color: #3d3d3d;
+$primary-green: #4caf50;
+$text-main: #ffffff;
+$text-dim: #b0b0b0;
+$nav-height: 70px;
+
+.splitly-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-color;
+
+  // Main Content Area
+  .splitly-content {
+    flex: 1;
+    max-width: 1200px;
+  }
+
+  // Navigation Sidebar/Dock
+  .splitly-nav-container {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: $nav-height;
+    background-color: $surface-color;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+
+    .nav-item {
+      flex: 1;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $text-dim;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &.active {
+        color: $primary-green;
+      }
+
+      // Placeholder for icons if you use them
+      i {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+// Desktop Adaptation
+@media (min-width: 681px) {
+  .splitly-container {
+    flex-direction: row; // Sidebar layout for desktop
+
+    .splitly-nav-container {
+      position: sticky;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      overflow-y: auto;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      border-top: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+      .nav-item {
+        padding: 15px 25px;
+        flex-direction: row;
+        font-size: 1rem;
+        gap: 15px;
+
+        &:hover {
+          background-color: rgba($primary-green, 0.1);
+        }
+      }
+    }
+
+    .app-content {
+      padding-bottom: 20px; // Reset mobile padding
+    }
+  }
+}
