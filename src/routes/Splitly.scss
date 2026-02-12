@@ -5,89 +5,89 @@ $text-main: #ffffff;
 $text-dim: #b0b0b0;
 $nav-height: 70px;
 
-.splitly-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: $bg-color;
+body {
+  margin: 0;
+  height: 100vh;
+}
 
-  // Main Content Area
+.splitly-container {
+  display: flex;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: $bg-color;
+  flex-direction: row; // Sidebar layout for desktop
+
   .splitly-content {
-    flex: 1;
-    max-width: 1200px;
+    height: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow-y: auto;
   }
 
-  // Navigation Sidebar/Dock
   .splitly-nav-container {
     position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: $nav-height;
+    top: 0;
+    width: 250px;
+    height: 100%;
     background-color: $surface-color;
     display: flex;
     align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
 
-    .nav-item {
-      flex: 1;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-      color: $text-dim;
-      text-decoration: none;
-      font-size: 0.8rem;
-      transition: color 0.3s ease;
+  .nav-item {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-dim;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    flex-direction: row;
+    font-size: 1rem;
+    gap: 15px;
+    max-height: 5em;
 
-      &:hover,
-      &.active {
-        color: $primary-green;
-      }
-
-      // Placeholder for icons if you use them
-      i {
-        font-size: 1.5rem;
-        margin-bottom: 4px;
-      }
+    &:hover {
+      background-color: rgba($primary-green, 0.1);
     }
   }
 }
 
-// Desktop Adaptation
-@media (min-width: 681px) {
+@media (max-width: 681px) {
   .splitly-container {
-    flex-direction: row; // Sidebar layout for desktop
+    flex-direction: column-reverse;
 
+    // Navigation Sidebar/Dock
     .splitly-nav-container {
-      position: sticky;
-      top: 0;
-      width: 250px;
-      height: 100%;
-      overflow-y: auto;
-
-      flex-direction: column;
-      justify-content: flex-start;
-      border-top: none;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: $nav-height;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-right: none;
+      flex-direction: row;
+      width: 100%;
 
       .nav-item {
-        padding: 15px 25px;
-        flex-direction: row;
-        font-size: 1rem;
-        gap: 15px;
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        &:hover {
-          background-color: rgba($primary-green, 0.1);
-        }
+        color: $text-dim;
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: color 0.3s ease;
       }
-    }
-
-    .app-content {
-      padding-bottom: 20px; // Reset mobile padding
     }
   }
 }

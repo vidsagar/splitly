@@ -4,12 +4,13 @@ body {
 }
 
 .layout-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   font-family: Arial, sans-serif;
 
   .nav-header {
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,23 +39,7 @@ body {
   }
 
   .main-content {
-    display: flex;
     flex: 1;
-    overflow-y: auto;
-  }
-
-  footer {
-    background-color: #282c34;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: auto;
-  }
-
-  @media only screen and (max-width: 500px) {
-    .main-content {
-      padding: 10px;
-      margin: auto;
-    }
+    overflow: hidden;
   }
 }
