@@ -1,0 +1,93 @@
+$bg-color: #333333;
+$surface-color: #3d3d3d;
+$primary-green: #4caf50;
+$text-main: #ffffff;
+$text-dim: #b0b0b0;
+$nav-height: 70px;
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.splitly-container {
+  display: flex;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: $bg-color;
+  flex-direction: row; // Sidebar layout for desktop
+
+  .splitly-content {
+    height: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow-y: auto;
+  }
+
+  .splitly-nav-container {
+    position: sticky;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: $surface-color;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-item {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-dim;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    flex-direction: row;
+    font-size: 1rem;
+    gap: 15px;
+    max-height: 5em;
+
+    &:hover {
+      background-color: rgba($primary-green, 0.1);
+    }
+  }
+}
+
+@media (max-width: 681px) {
+  .splitly-container {
+    flex-direction: column-reverse;
+
+    // Navigation Sidebar/Dock
+    .splitly-nav-container {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: $nav-height;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-right: none;
+      flex-direction: row;
+      width: 100%;
+
+      .nav-item {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $text-dim;
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}

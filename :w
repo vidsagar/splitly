@@ -1,0 +1,19 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "./SplitlyLayout.scss";
+
+const SplitlyLayout = ({ children }) => {
+	return (
+		<div className="splitly-nav-bar">
+			<nav>
+				<Link className="nav-item" to="/receipts">Receipts</Link>
+				<Link className="nav-item" to="/">Users</Link>
+				<Link className="nav-item" to="/">Activity</Link>
+				<Link className="nav-item" to="/">Settings</Link>
+			</nav>
+			<main>{children}</main>
+		</div>
+	)
+}
+
+export default SplitlyLayout;

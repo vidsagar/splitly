@@ -1,6 +1,7 @@
 import { useReceipt } from "context/ReceiptProvider";
-import ItemRow from "./ItemRow";
-import PortionManager from "./PortionManager";
+import ItemRow from "components/inputRow/ItemRow";
+import PortionManager from "components/portionManager/PortionManager";
+import "./ItemList.scss"
 
 
 export const ItemList = () => {

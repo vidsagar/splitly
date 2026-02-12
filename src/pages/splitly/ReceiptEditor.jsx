@@ -1,11 +1,9 @@
-import { TotalsDisplay } from "components/TotalsDisplay";
 import { ReceiptProvider } from "context/ReceiptProvider";
-import { UserManager } from "components/UserManager";
+import { UserManager } from "components/userManager/UserManager";
 import { Receipt } from "components/Receipt";
-import "styles/Home.css";
+import { TotalsDisplay } from "components/TotalsDisplay";
 
-
-export const FairShare = () => {
+const ReceiptEditor = () => {
 
 	return (
 		<ReceiptProvider>
@@ -15,3 +13,5 @@ export const FairShare = () => {
 		</ReceiptProvider>
 	)
 }
+
+export default ReceiptEditor;

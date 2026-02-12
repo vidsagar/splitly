@@ -1,0 +1,61 @@
+.receipt-gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: flex-start;
+
+  .card {
+    width: 150px;
+    height: 200px;
+    background-color: #222222;
+    border-radius: 12px;
+    border: 2px transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 14px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .receipt-card .icon {
+    font-size: 2rem;
+  }
+
+  .store-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+
+  .date {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+  }
+
+  .total {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: auto;
+    color: #ccc;
+  }
+
+  .add-receipt-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .plus-icon {
+      font-size: 3rem;
+      color: #ccc;
+      font-weight: 300;
+    }
+  }
+}

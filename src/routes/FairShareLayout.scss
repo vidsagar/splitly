@@ -1,14 +1,16 @@
+body {
+  margin: 0;
+  height: 100vh;
+}
+
 .layout-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   font-family: Arial, sans-serif;
 
   .nav-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -36,13 +38,8 @@
     border-color: #fff;
   }
 
-  .main-content {}
-
-  footer {
-    background-color: #282c34;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: auto;
+  .main-content {
+    flex: 1;
+    overflow: hidden;
   }
 }

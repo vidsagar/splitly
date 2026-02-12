@@ -128,6 +128,7 @@ export const ReceiptProvider = ({ children }) => {
 	}
 
 	const onSubmitClick = () => {
+		console.log(items);
 		const personToPriceMap = new Map();
 		let total = 0.0;
 		items.forEach(
