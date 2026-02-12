@@ -5,6 +5,7 @@ import { Activity } from "pages/splitly/Activity";
 import { Settings } from "pages/splitly/Settings";
 import { Link } from "react-router-dom";
 import "./Splitly.scss";
+import ReceiptEditor from "pages/splitly/ReceiptEditor";
 
 function SplitlyLayout() {
 	return (
@@ -31,7 +32,7 @@ function SplitlyRoutes() {
 		{
 			element: <SplitlyLayout />,
 			children: [
-				{ index: true, element: <ReceiptGallery /> },
+				{ index: true, element: <ReceiptEditor /> },
 				{ path: "receipts", element: <ReceiptGallery /> },
 				{ path: "users", element: <Users /> },
 				{ path: "activity", element: <Activity /> },
