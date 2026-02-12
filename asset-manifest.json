@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/splitly/static/css/main.6f9a3690.css",
-    "main.js": "/splitly/static/js/main.b4a83d36.js",
+    "main.js": "/splitly/static/js/main.6e720e43.js",
     "index.html": "/splitly/index.html",
     "main.6f9a3690.css.map": "/splitly/static/css/main.6f9a3690.css.map",
-    "main.b4a83d36.js.map": "/splitly/static/js/main.b4a83d36.js.map"
+    "main.6e720e43.js.map": "/splitly/static/js/main.6e720e43.js.map"
   },
   "entrypoints": [
     "static/css/main.6f9a3690.css",
-    "static/js/main.b4a83d36.js"
+    "static/js/main.6e720e43.js"
   ]
 }
