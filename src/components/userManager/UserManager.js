@@ -55,7 +55,7 @@ export const UserManager = () => {
 						)
 					})
 				}
-				{users.length >= 1 ? " and " : ""}
+				<span className="and-text">{users.length >= 1 ? " and " : ""}</span>
 
 				<span className="token">
 					<AutoGrowInput
@@ -72,11 +72,6 @@ export const UserManager = () => {
 					</button>
 				</span>
 			</p>
-			<Button
-				label="Add user"
-				onClick={() => addUser("")}
-				variant="add-user"
-			/>
 		</div>
 	)
 }

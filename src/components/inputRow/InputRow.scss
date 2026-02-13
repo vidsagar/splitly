@@ -1,12 +1,11 @@
-
-
 .item-input-row {
-    display: flex;
-    gap: 10px; /* Add spacing between fields */
-    align-items: center;
-    flex-direction: row;
-  }
-  
+  display: flex;
+  gap: 10px;
+  /* Add spacing between fields */
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
   .submit-button {
     padding: 10px 20px;
     background-color: #4caf50;
@@ -17,8 +16,8 @@
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
+
   .submit-button:hover {
     background-color: #088d0f;
   }
-  
+}

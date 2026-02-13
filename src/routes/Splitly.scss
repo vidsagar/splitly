@@ -18,6 +18,7 @@ body {
   flex-direction: row; // Sidebar layout for desktop
 
   .splitly-content {
+    flex: 1;
     height: 100%;
     max-width: 800px;
     margin: auto;

@@ -43,6 +43,7 @@ export default function AutoGrowInput({ value, onChange, onBlur = (e) => e, minW
 					visibility: "hidden",
 					whiteSpace: "pre",
 					font: "inherit",
+					minWidth: "6ch",
 				}}
 			>
 				{value || ""}

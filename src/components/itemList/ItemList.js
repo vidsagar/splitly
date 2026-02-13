@@ -14,7 +14,7 @@ export const ItemList = () => {
 	const { handleFocus } = useReceipt();
 	const { onDeleteClick } = useReceipt();
 	return (
-		<>
+		<div className="item-rows-container">
 			{items?.map(
 				(inputItem, index) => (
 					<div
@@ -41,6 +41,6 @@ export const ItemList = () => {
 					</div>
 				)
 			)}
-		</>
+		</div>
 	)
 }

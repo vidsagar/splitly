@@ -4,12 +4,7 @@ import { isValidInput, getBuyersPortion } from "utils/Utils";
 
 export const ReceiptProvider = ({ children }) => {
 	/***** USER STORE START *****/
-	const [users, setUsers] = useState([
-		{
-			username: "Victor",
-			userId: crypto.randomUUID(),
-		}
-	]);
+	const [users, setUsers] = useState([]);
 
 	const onUsernameChange = (newUsername, userId) => {
 		const indexToUpdate = users.findIndex(user => user.userId === userId);

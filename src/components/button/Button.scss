@@ -1,67 +1,67 @@
 /* Base button styling */
 .button {
-	display: inline-block;
-	padding: 7px 16px;
-	font-size: 16px;
-	text-align: center;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: background-color 0.3s ease, transform 0.2s ease;
-	user-select: none;
-	flex: 1;
+  display: inline-block;
+  padding: 7px 16px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  flex: 1;
 }
 
 .button.add-user {
-	background-color: #4caf50;
-	align-self: center;
-	flex: 0;
-	white-space: nowrap
+  background-color: #4caf50;
+  align-self: center;
+  flex: 0;
+  white-space: nowrap
 }
 
 /* Variants */
 .button.primary {
-	background-color: #4caf50;
-	color: white;
+  background-color: #4caf50;
+  color: white;
 }
 
 .button.submit {
-	background-color: #498ac7;
-	color: white;
+  background-color: #498ac7;
+  color: white;
 }
 
 .button.secondary {
-	background-color: #6c757d;
-	color: white;
+  background-color: #6c757d;
+  color: white;
 }
 
 .button.success {
-	background-color: #28a745;
-	color: white;
+  background-color: #28a745;
+  color: white;
 }
 
 .button.delete:hover {
-	background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .button.danger {
-	background-color: #dc3545;
-	color: white;
+  background-color: #dc3545;
+  color: white;
 }
 
 /* Hover and active states */
 .button:hover {
-	opacity: 0.9;
+  opacity: 0.9;
 }
 
 .button.inactive {
-	background-color: #7c7c7c;
-	color: rgb(255, 255, 255);
+  background-color: #7c7c7c;
+  color: rgb(255, 255, 255);
 }
 
 /* Disabled state */
 .button.disabled {
-	background-color: #d6d6d6;
-	color: #7c7c7c;
-	cursor: not-allowed;
-	pointer-events: none;
+  background-color: #d6d6d6;
+  color: #7c7c7c;
+  cursor: not-allowed;
+  pointer-events: none;
 }

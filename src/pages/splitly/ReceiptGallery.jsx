@@ -17,8 +17,12 @@ export const ReceiptGallery = () => {
 		{ id: 8, store: "Apple Store", date: "2026-02-08", total: 129.00 },
 	]);
 
+	const handleAddReceiptClick = () => {
+		setCurrentView('editor');
+	}
+
 	const addReceiptCard = (
-		<div className="card add-receipt-card">
+		<div className="card add-receipt-card" onClick={handleAddReceiptClick}>
 			<div className="plus-icon">+</div>
 		</div>
 	);
