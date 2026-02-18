@@ -1,5 +1,4 @@
 import { useReceipt } from "context/ReceiptProvider"
-import { useState } from "react";
 import { getBuyersPortion } from "utils/Utils";
 import { useMemo } from "react";
 
