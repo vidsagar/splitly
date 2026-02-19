@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ReceiptEditor from "./ReceiptEditor";
 import "./ReceiptGallery.scss";
 
 export const ReceiptGallery = () => {
@@ -27,7 +26,7 @@ export const ReceiptGallery = () => {
 					<p className="total">${receipt.total.toFixed(2)}</p>
 				</div>
 			))}
-			<Link className="card add-receipt-card" to="new">
+			<Link className="card add-receipt-card" to="/splitly/receipts/new">
 				<div className="plus-icon">+</div>
 			</Link>
 		</div>

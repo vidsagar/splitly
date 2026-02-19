@@ -32,7 +32,8 @@ function SplitlyRoutes() {
 		{
 			element: <SplitlyLayout />,
 			children: [
-				{ index: true, path: "receipts", element: <ReceiptGallery /> },
+				{ index: true, element: <ReceiptGallery /> },
+				{ path: "receipts", element: <ReceiptGallery /> },
 				{ path: "receipts/new", element: <ReceiptEditor /> },
 				{ path: "users", element: <Users /> },
 				{ path: "activity", element: <Activity /> },
